@@ -1,15 +1,11 @@
 import React from 'react'
-import { Button, Row, Col } from 'antd'
 import './index.less'
-
-export default class Footer extends React.Component{
-  render() {
-    return (
-      <Row className="footer">
-        <Col span={12}>1</Col>
-        <Col span={12}>2</Col>
-        <Button type='danger'>hello</Button>
-      </Row>
-    )
-  }
+export default class Footer extends React.Component {
+    render() {
+        return (
+            <div className="footer">
+               版权所有：（推荐使用谷歌浏览器，可以获得更佳操作页面体验） 技术支持：LEE
+            </div>
+        );
+    }
 }
