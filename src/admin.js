@@ -4,6 +4,15 @@ import Header from './components/Header'
 import NavLeft from './components/NavLeft'
 import Footer from './components/Footer'
 import './style/common.less'
+import store from './store/store.js'
+import { addToCart, updateCart, deleteFromCart } from './action/cart'
+
+
+store.dispatch(addToCart('coffee 500gm', 1, 250));
+store.dispatch(addToCart('Flour 1kg', 2, 110));
+store.dispatch(addToCart('juice 2L', 1, 250));
+store.dispatch(deleteFromCart('Flour 1kg'));
+store.dispatch(updateCart('juice 2L', 2, 250));
 
 export default class Admin extends React.Component{
   

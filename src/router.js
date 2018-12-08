@@ -2,32 +2,27 @@ import React from "react"
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  Switch,
 } from "react-router-dom" 
+import Home from './components/Home'
 import Admin from './admin.js'
-import About from './pages/about/index.js'
-import Topic from './pages/topic/topic.js'
-import TransferMsg from './pages/transferMsg'
+import Buttons from './pages/ui/button.js'
+import Modals from './pages/ui/modals.js'
 
 function AuthExample() {
   return (
     <Router>
-      <Admin>
-        <ul>
-          <li>
-            <Link to="/about">Public Page</Link>
-          </li>
-          <li>
-            <Link to="/topic">protected Page</Link>
-          </li>
-          <li>
-            <Link to="/transferMsg">protected Page</Link>
-          </li>
-        </ul>
-        <Route path="/about" component={About} />
-        <Route path="/topic" component={Topic} />
-        <Route path="/transferMsg" component={TransferMsg} />
-      </Admin>
+      <Route path="/" render={()=>
+        <Admin>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/ui/buttons" component={Buttons} />
+            <Route path="/ui/modals" component={Modals} />
+            {/* <Route path="/ui/loadings" component={Loadings} />
+            <Route path="/ui/notification" component={Notice} /> */}
+          </Switch>
+        </Admin>
+      } />
     </Router>
   )
 }
